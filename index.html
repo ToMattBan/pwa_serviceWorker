@@ -36,6 +36,14 @@
         <span style="background-color: green;"></span>
         <span style="background-color: yellow;"></span>
     </div>
+
+    <script>
+        window.addEventListener('load', () => {
+            if ("serviceWorker" in navigator) {
+                navigator.serviceWorker.register("./serviceWorker/service_worker.js")
+            }
+        })
+    </script>
 </body>
 
 </html>
