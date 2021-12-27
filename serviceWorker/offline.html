@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PWA OFFLINE</title>
+</head>
+
+<body>
+    <style>
+        html,
+        body {
+            background-color: black;
+            color: white;
+        }
+    </style>
+
+    TÁ OFELAINE
+
+    <script>
+        window.addEventListener('online', () => {
+            window.location.reload();
+        })
+
+        async function checkNetworkAndReload() {
+            try {
+                const response = await fetch('.');
+                if (response.status >= 200 && response.status < 500) {
+                    window.location.reload();
+                    return;
+                }
+            } catch { }
+            window.setTimeout(checkNetworkAndReload, 2500);
+        }
+
+        checkNetworkAndReload();
+    </script>
+</body>
+
+</html>
