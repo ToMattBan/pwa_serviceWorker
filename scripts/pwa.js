@@ -1,20 +1,18 @@
-var promptInstall;
+let deferredPrompt;
+
 window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault();
-    promptInstall = e;
-})
+  e.preventDefault();
+  deferredPrompt = e;
+});
 
-function teste() {
-    if (promptInstall) {
-        promptInstall.prompt();
-        promptInstall.userChoice.then((escolha) => {
-            if (escolha.outcome == "acepted") {
-                console.log('Instalando');
-            } else {
-                console.log('User não quis');
-            }
+document.querySelector('abso').addEventListener('click', (e) => {
+    deferredPrompt.prompt();
 
-            promptInstall = null;
-        });
-    };
-};
+    deferredPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === 'accepted') {
+        console.log('User accepted the install prompt');
+      } else {
+        console.log('User dismissed the install prompt');
+      }
+    });
+  });
