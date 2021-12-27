@@ -5,5 +5,5 @@ window.addEventListener('beforeinstallprompt', (e) => {
 })
 
 function teste() {
-    promptInstall.prompt();
+    promptInstall && promptInstall.prompt();
 }

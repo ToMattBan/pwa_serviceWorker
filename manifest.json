@@ -5,14 +5,17 @@
     "icons": [
         {
             "src": "./assets/icon-192.png",
+            "type": "image/png",
             "sizes": "192x192"
         },
         {
             "src": "./assets/icon-512.png",
+            "type": "image/png",
             "sizes": "512x512"
         }
     ],
     "start_url": "/pwa_serviceWorker/",
     "scope": "/pwa_serviceWorker/",
-    "display": "standalone"
+    "display": "standalone",
+    "background_color": "#fff"
 }
